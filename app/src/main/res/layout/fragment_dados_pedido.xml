@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="viewModel" type="br.com.felipebertanha.testeviewmodeldatabinding.ui.main.PageViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.main.DadosPedidoFragment">
+
+
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:text="@={viewModel.pedidoMutableLiveData.observacao}"
+                android:id="@+id/pedido_obs" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent" tools:text="Pedido Obs"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:text="@{viewModel.stringMutableLiveData}"
+                android:id="@+id/cliente_nome" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/pedido_obs" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent" tools:text="CLiente nome"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:text="@{viewModel.pedidoMutableLiveData.total}"
+                android:id="@+id/cliente_sobrenome" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/cliente_nome" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent" tools:text="Cliente Sobrenome"/>
+        <Button
+                android:text="salvar"
+                android:layout_width="wrap_content"
+                android:onClick="@{() -> viewModel.salvar()}"
+                android:layout_height="wrap_content"
+                android:id="@+id/button" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/cliente_sobrenome" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
